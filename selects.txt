@@ -1,0 +1,151 @@
+#1.
+
+
+select * from exhibit;
+
+
+
+
+
+#2.
+
+
+select author.first_name, author.last_name, exhibit.name as name_of_exhibit, exhibit.id_hall
+
+from author inner join exhibit
+
+on author.id_author = exhibit.id_author
+
+where author.id_author = 5;
+
+
+
+
+
+#3.
+
+
+select exhibit.id_exhibit, exhibit.name
+
+from  (exhibit inner join hall) inner join workers
+
+on exhibit.id_hall = hall.id_hall
+
+and hall.id_worker = workers.id_worker
+
+where workers.first_name = 'Igor';
+
+
+
+
+
+#4.
+
+
+select hall.id_hall, id_exhibit, exhibit.name
+
+from exhibit inner join hall
+
+on hall.id_hall = exhibit.id_hall;
+
+
+
+
+
+#5.
+
+
+select first_name, last_name from workers
+
+where post = 'Guide';
+
+
+
+
+
+#6.
+
+
+select workers.first_name, workers.last_name
+
+from workers
+
+where post = 'Guide' and id_worker not in
+
+(select workers.id_worker
+
+from (schedule inner join excursion) inner join workers
+
+on excursion.id_excursion = schedule.id_excursion
+
+and workers.id_worker = excursion.id_guide
+
+where schedule.date_start > '2017-01-20 10:00:00' AND schedule.date_end < '2017-01-20 20:00:00');
+
+
+
+
+
+#7.
+
+
+select excursion.id_excursion, excursion.name
+
+from schedule inner join excursion
+
+on excursion.id_excursion = schedule.id_excursion
+
+where schedule.date_start > '2017-01-20 10:00:00' AND schedule.date_end < '2017-01-20 20:00:00';
+
+
+
+
+
+#8.
+
+
+select exhibit.id_exhibit, exhibit.id_hall, exhibit.id_author,
+exhibit.name, exhibit.material, exhibit.technique, hall.name as name_of_hall,
+author.first_name as author_first_name, author.last_name as author_last_name
+
+from (hall inner join exhibit) inner join author
+
+on hall.id_hall = exhibit.id_hall
+
+and exhibit.id_author = author.id_author
+
+group by id_exhibit;
+
+
+
+
+
+#9.
+
+
+select count(excursion.id_excursion) as count_of_excursions
+
+from schedule inner join excursion
+
+on excursion.id_excursion = schedule.id_excursion
+
+where schedule.date_start > '2017-01-20 10:00:00' AND schedule.date_end < '2017-01-20 20:00:00';
+
+
+
+
+
+#10.
+
+
+select distinct workers.first_name, workers.last_name, count(excursion.id_excursion) as count_of_conducted_excursions, sum(excursion.duration_hours) as total_time
+
+from (excursion inner join workers) inner join schedule
+
+on excursion.id_excursion = schedule.id_excursion
+
+and workers.id_worker = excursion.id_guide
+
+where done = 1 and schedule.date_start > '2017-01-10 10:00:00' AND schedule.date_end < '2017-01-30 20:00:00'
+
+group by last_name;
