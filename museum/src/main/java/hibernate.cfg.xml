@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+
+  <session-factory>
+    <property name=«connection.driver_class»>com.mysql.jdbc.Driver</property>
+	<property name=«connection.url»>jdbc:mysql://127.0.0.1:3306/museumdb</property>
+    <property name=«connection.username»>root</property>
+    <property name=«connection.password»>123nazar123</property>
+    <property name=«connection.pool_size»>1</property>
+    <property name=«current_session_context_class»>thread</property>
+    <property name=«show_sql»>true</property>
+    <property name=«dialect»>org.hibernate.dialect.MySQL5Dialect</property>
+
+    <mapping resource=«com.softserve.app.entity/Author.java»/>
+    <mapping resource=«com.softserve.app.entity/Excursion.java»/>
+    <mapping resource=«com.softserve.app.entity/Exhibit.java»/>
+	<mapping resource=«com.softserve.app.entity/Hall.java»/>
+    <mapping resource=«com.softserve.app.entity/Schedule.java»/>
+    <mapping resource=«com.softserve.app.entity/Workers.java»/>
+
+  </session-factory>
+  
+</hibernate-configuration>

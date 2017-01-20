@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Завантаження/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/jpa-metamodel-generator/hibernate-jpamodelgen-5.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/envers/hibernate-envers-5.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/optional/c3p0/hibernate-c3p0-5.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/optional/proxool/hibernate-proxool-5.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/optional/ehcache/hibernate-ehcache-5.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/optional/infinispan/hibernate-infinispan-5.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Завантаження/hibernate-release-5.2.6.Final/hibernate-release-5.2.6.Final/lib/osgi/hibernate-osgi-5.2.6.Final.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
