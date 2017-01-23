@@ -11,9 +11,9 @@ public class ExhibitsOfAuthorQuery extends Query {
 		String authorName=args[0];
 		Session session=factory.openSession();
 		List exhibits=null;
-		String sql = "select *"+
-        "(SELECT author.id_author WHERE author.first_name+author.last_name="+authorName+") as authorid"+
-          "where authorid.id_author = exhibit.id_author;";
+		String sql = "select * FROM exhibits"+
+        "where (SELECT author.id_author FROM author WHERE author.first_name+author.last_name="+authorName+") as authorid"+
+          " authorid.id_author = exhibit.id_author;";
 	    Transaction tx = null;
 	    try{
 	         tx = session.beginTransaction();
