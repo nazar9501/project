@@ -9,6 +9,7 @@ public class ExhibitsQuery implements Query {
 	@Override
 	public List executeQuery(SessionFactory factory,String ...args) { //args not used in this method as we take all Exhibits without any constraints
 		Session session=factory.openSession();
+		List exhibits=null;
 		String sql = "select * from exhibit;";
 	    Transaction tx = null;
 	    try{
