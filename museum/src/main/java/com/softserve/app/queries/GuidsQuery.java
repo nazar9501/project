@@ -3,6 +3,7 @@ package com.softserve.app.queries;
 import java.util.List;
 
 import com.softserve.app.entity.Exhibit;
+import com.softserve.app.entity.Workers;
 
 public class GuidsQuery implements Query {
 
@@ -16,7 +17,7 @@ public class GuidsQuery implements Query {
 	    try{
 	         tx = session.beginTransaction();
 	         SQLQuery query = session.createSQLQuery(sql);
-	         query.addEntity(Exhibit.class);
+	         query.addEntity(Workers.class);
 	         workers = query.list(); // here we get the list of all exhibits in base
 	       }
 	         tx.commit();
@@ -26,7 +27,7 @@ public class GuidsQuery implements Query {
 	     }finally {
 	         session.close(); 
 	     }
-		return exhibits;
+		return workers;
 	}
     
 	
