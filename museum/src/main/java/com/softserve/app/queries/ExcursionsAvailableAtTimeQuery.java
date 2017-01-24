@@ -1,10 +1,19 @@
 package com.softserve.app.queries;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import com.softserve.app.entity.*;
 public class ExcursionsAvailableAtTimeQuery implements Query {
 
-	@Override
 	public List executeQuery(SessionFactory factory,String ...args) { //args not used in this method as we take all Exhibits without any constraints
 		String startDate=args[0];
 		String endDate=args[1];
@@ -18,8 +27,8 @@ public class ExcursionsAvailableAtTimeQuery implements Query {
 	         tx = session.beginTransaction();
 	         SQLQuery query = session.createSQLQuery(sql);
 	         query.addEntity(Excursion.class);
-	         workers = query.list(); // here we get the list of all exhibits in base
-	       }
+	         excursions = query.list(); // here we get the list of all exhibits in base
+	       
 	         tx.commit();
 	     }catch (HibernateException e) {
 	         if (tx!=null) tx.rollback();

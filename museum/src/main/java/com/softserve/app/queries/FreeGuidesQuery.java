@@ -3,10 +3,14 @@ package com.softserve.app.queries;
 import java.util.List;
 
 import com.softserve.app.entity.Workers;
-
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 public class FreeGuidesQuery implements Query {
 
-	@Override
+	
 	public List executeQuery(SessionFactory factory,String ...args) { //args not used in this method as we take all Exhibits without any constraints
 		String startDate=args[0];
 		String endDate=args[1];
@@ -26,7 +30,7 @@ public class FreeGuidesQuery implements Query {
 	         SQLQuery query = session.createSQLQuery(sql);
 	         query.addEntity(Workers.class);
 	         workers = query.list(); // here we get the list of all exhibits in base
-	       }
+	       
 	         tx.commit();
 	     }catch (HibernateException e) {
 	         if (tx!=null) tx.rollback();
@@ -36,3 +40,4 @@ public class FreeGuidesQuery implements Query {
 	     }
 		return workers;
 	}
+}

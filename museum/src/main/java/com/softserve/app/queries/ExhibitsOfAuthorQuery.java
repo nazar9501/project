@@ -3,10 +3,13 @@ package com.softserve.app.queries;
 import java.util.List;
 
 import com.softserve.app.entity.Exhibit;
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+public class ExhibitsOfAuthorQuery implements Query {
 
-public class ExhibitsOfAuthorQuery extends Query {
-
-	@Override
 	public List executeQuery(SessionFactory factory, String... args) {
 		String authorName=args[0];
 		Session session=factory.openSession();
@@ -20,7 +23,7 @@ public class ExhibitsOfAuthorQuery extends Query {
 	         SQLQuery query = session.createSQLQuery(sql);
 	         query.addEntity(Exhibit.class);
 	         exhibits = query.list(); // here we get the list of all exhibits in base
-	       }
+	       
 	         tx.commit();
 	     }catch (HibernateException e) {
 	         if (tx!=null) tx.rollback();

@@ -4,9 +4,14 @@ import java.util.List;
 
 import com.softserve.app.entity.Exhibit;
 
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 public class ExhibitInfoQuery implements Query {
 
-	@Override
 	public List executeQuery(SessionFactory factory,String ...args) { //args not used in this method as we take all Exhibits without any constraints
 		Session session=factory.openSession();
 		List exhibitsInfo=null;
@@ -23,7 +28,7 @@ public class ExhibitInfoQuery implements Query {
 	         SQLQuery query = session.createSQLQuery(sql);
 	         query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
 	         exhibitsInfo = query.list(); // here we get the list of all exhibits in base
-	       }
+	       
 	         tx.commit();
 	     }catch (HibernateException e) {
 	         if (tx!=null) tx.rollback();
@@ -33,5 +38,6 @@ public class ExhibitInfoQuery implements Query {
 	     }
 		return exhibitsInfo;
 	}
+}
     
 	
